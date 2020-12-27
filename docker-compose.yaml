@@ -1,0 +1,30 @@
+version: '3.7'
+
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  app:
+    image: 'bitnami/php-fpm:7.3'
+    volumes:
+      - .:/var/www/app
+    environment:
+      COMPOSER_MEMORY_LIMIT: -1
+      COMPOSER_ALLOW_SUPERUSER: 1
+      APP_ENV: 'dev'
+    networks:
+      - app-tier
+    working_dir: /var/www/app
+
+  nginx:
+    image: 'bitnami/nginx:latest'
+    networks:
+      - app-tier
+    depends_on:
+      - app
+    ports:
+      - '80:80'
+    volumes:
+      - ./server_block.conf:/opt/bitnami/nginx/conf/server_blocks/myapp.conf
+      - .:/var/www/app

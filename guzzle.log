@@ -1,0 +1,5 @@
+[2020-12-27T08:43:05.077736+00:00] guzzle.INFO: Sending GET  {"query":{"login":"test","pass":"12345"}} []
+[2020-12-27T08:43:06.844151+00:00] guzzle.INFO: Sending GET  {"query":{"token":"KqxZ8nOvRx"}} []
+[2020-12-27T08:43:11.445946+00:00] guzzle.INFO: Sending POST [] []
+[2020-12-27T08:43:29.317389+00:00] guzzle.INFO: Sending POST [] []
+[2020-12-27T08:43:29.331634+00:00] guzzle.ERROR: Guzzle post error (1a):  {"e":"Client error: `POST http://172.28.0.1/user/23/update?token=KqxZ8nOvRx` resulted in a `400 Bad Request` response:\n{\"status\":\"Error\",\"errors\":\"Invalid format for permissions.\"}\n","code":400} []
